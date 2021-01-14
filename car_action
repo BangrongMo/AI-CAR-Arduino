@@ -1,0 +1,51 @@
+void stop() {
+    sprintf(cmd_return, "#%03dP%04dT%04d!", 6, 1500, 0); //组合指令
+    parse_action(cmd_return); 
+    sprintf(cmd_return, "#%03dP%04dT%04d!", 7, 1500, 0); //组合指令
+    parse_action(cmd_return); 
+    sprintf(cmd_return, "#%03dP%04dT%04d!", 8, 1500, 0); //组合指令
+    parse_action(cmd_return); 
+    sprintf(cmd_return, "#%03dP%04dT%04d!", 9, 1500, 0); //组合指令
+    parse_action(cmd_return); 
+}
+void forward() {
+    sprintf(cmd_return, "#%03dP%04dT%04d!", 6, 1500 + 500, 0); //组合指令
+    parse_action(cmd_return); 
+    sprintf(cmd_return, "#%03dP%04dT%04d!", 7, 1500 - 500, 0); //组合指令
+    parse_action(cmd_return); 
+    sprintf(cmd_return, "#%03dP%04dT%04d!", 8, 1500 + 500, 0); //组合指令
+    parse_action(cmd_return); 
+    sprintf(cmd_return, "#%03dP%04dT%04d!", 9, 1500 - 500, 0); //组合指令
+    parse_action(cmd_return); 
+}
+void left() {
+    sprintf(cmd_return, "#%03dP%04dT%04d!", 6, 1500, 0); //组合指令
+    parse_action(cmd_return); 
+    sprintf(cmd_return, "#%03dP%04dT%04d!", 7, 1500 - 500, 0); //组合指令
+    parse_action(cmd_return); 
+    sprintf(cmd_return, "#%03dP%04dT%04d!", 8, 1500, 0); //组合指令
+    parse_action(cmd_return); 
+    sprintf(cmd_return, "#%03dP%04dT%04d!", 9, 1500 - 500, 0); //组合指令
+    parse_action(cmd_return); 
+}
+void right() {
+    sprintf(cmd_return, "#%03dP%04dT%04d!", 6, 1500 + 500, 0); //组合指令
+    parse_action(cmd_return); 
+    sprintf(cmd_return, "#%03dP%04dT%04d!", 7, 1500, 0); //组合指令
+    parse_action(cmd_return); 
+    sprintf(cmd_return, "#%03dP%04dT%04d!", 8, 1500 + 500, 0); //组合指令
+    parse_action(cmd_return); 
+    sprintf(cmd_return, "#%03dP%04dT%04d!", 9, 1500, 0); //组合指令
+    parse_action(cmd_return); 
+}
+
+void backforward() {
+    sprintf(cmd_return, "#%03dP%04dT%04d!", 6, 1500 - 500, 0); //组合指令
+    parse_action(cmd_return); 
+    sprintf(cmd_return, "#%03dP%04dT%04d!", 7, 1500 + 500, 0); //组合指令
+    parse_action(cmd_return); 
+    sprintf(cmd_return, "#%03dP%04dT%04d!", 8, 1500 - 500, 0); //组合指令
+    parse_action(cmd_return); 
+    sprintf(cmd_return, "#%03dP%04dT%04d!", 9, 1500 + 500, 0); //组合指令
+    parse_action(cmd_return); 
+}
