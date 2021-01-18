@@ -1,0 +1,17 @@
+#include <Servo.h>
+Servo myservo;
+int count = 0;
+void setup() {
+	Serial.begin(9600);
+	myservo.attach(2);//8,6,5,对应5，3，2
+}
+void loop() {
+	Serial.println(count++);
+	myservo.write(90);
+	delay(200);
+	myservo.write(120);
+	delay(200);
+	myservo.write(170);
+	delay(200);
+
+}
