@@ -1,0 +1,10 @@
+
+void setup() {
+  pinMode(A3, INPUT); //SD2 is A3 
+  Serial.begin(115200);
+}
+void loop() {
+  Serial.print("start");
+  int a = analogRead(A3);
+  Serial.println(a);
+}
