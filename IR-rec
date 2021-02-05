@@ -1,0 +1,73 @@
+#include <IRremote.h>
+const int irReceiverPin =2;  //定义红外接收模块的信号接收为D2引脚 
+const int irReceiverPin =2;  //定义红外接收模块的信号接收为D2引脚 
+const int mada1=3;  
+const int mada2=5;
+const int mada3=9;
+const int mada4=10;
+IRrecv irrecv(irReceiverPin); //定义端口为红外信号接收端口
+decode_results results;//定义results变量为红外结果存放位置
+
+void setup()
+{
+  pinMode(mada1,OUTPUT);
+  pinMode(mada2,OUTPUT);
+  pinMode(mada3,OUTPUT);
+  pinMode(mada4,OUTPUT);
+  
+  Serial.begin(9600);     //定义波特率
+  irrecv.enableIRIn();    //给红外接收模块进行使能 ，初始化红外解码
+}
+
+void loop() 
+{
+  if (irrecv.decode(&results)) //当红外接收模块接收到信号时,数据放入results变量中
+  { 
+    Serial.print("irCode: "); //打印出"irCode: "红外编码
+    Serial.print(results.value, HEX); //打印出当前信号16进制的值，显示红外编码
+    Serial.print(", bits: "); //打印出" , bits: " 
+    Serial.println(results.bits); //打印出比特值，显示红外编码位数
+    irrecv.resume(); // 接收下一个信号
+  } 
+  delay(600); //延时600毫秒（按键消抖）
+  if(results.value == 0xFF629D)//如果接收到的信号为0xFFA25D
+  {
+    digitalWrite(mada1,HIGH);
+    digitalWrite(mada2,LOW);
+    digitalWrite(mada3,HIGH);
+    digitalWrite(mada4,LOW);
+  }
+ 
+   if(results.value == 0xFFA857)//如果接收到的信号为0xFFE21D
+  {
+  digitalWrite(mada1,LOW);
+  digitalWrite(mada2,HIGH);
+  digitalWrite(mada3,LOW);
+  digitalWrite(mada4,HIGH);
+  }
+
+  if(results.value == 0xFF02FD)
+  {
+  digitalWrite(mada1,LOW);
+  digitalWrite(mada2,LOW);
+  digitalWrite(mada3,LOW);
+  digitalWrite(mada4,LOW);
+  }
+ 
+  if(results.value == 0xFF22DD)
+  {
+  digitalWrite(mada1,HIGH);
+  digitalWrite(mada2,LOW);
+  digitalWrite(mada3,LOW);
+  digitalWrite(mada4,HIGH);
+  }
+  
+  if(results.value == 0xFFC23D)
+  {
+  digitalWrite(mada1,LOW);
+  digitalWrite(mada2,HIGH);
+  digitalWrite(mada3,HIGH);
+  digitalWrite(mada4,LOW);
+  }
+  //24685
+}
